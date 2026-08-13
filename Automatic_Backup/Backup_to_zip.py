@@ -5,7 +5,7 @@ import logging
 from datetime import datetime
 
 # Konsistent Variables
-SOURCE_FOLDER = r"C:\Users\Administrator\Desktop\IPLIS"
+SOURCE_FOLDER = r"C:\Users\Administrator\Desktop\Test_Ordner"
 BACKUP_FOLDER = r"C:\Backups_TEST"
 MAX_BACKUPS = 3
 LOG_FILE = os.path.join(BACKUP_FOLDER, "backup_log.txt")
@@ -79,7 +79,7 @@ def cleanup_old_backups(backup_folder, max_backups):
         oldest_file = backup_files.pop(0)
         os.remove(oldest_file)
         logging.info(f"Old backup deleted: {oldest_file}")
-
+        print(f"Mehr als 3 Backup Dateien vorhanden --> {oldest_file} wurde gelöscht")
 
 
 # Main Programm zum Ausführen
@@ -95,20 +95,21 @@ def main():
     try:
 
         # Backup Erstellen starten
-        print("---Backup---")
+        print("Backup läuft...")
         create_backup(SOURCE_FOLDER, BACKUP_FOLDER)
+        print("Backup fertig")
 
         # Cleanup Starten
-        print("---Cleanup---")
         cleanup_old_backups(BACKUP_FOLDER, MAX_BACKUPS)
+        print("Cleanup Done")
 
         # Logging das alles funktioniert hat
-        logging.info("Backup process completed successfully.")
+        logging.info("Backup process completed successfully =)")
 
     except Exception as e:
-        logging.error(f"Backup process failed: {e}")
+        logging.error(f"Backup process failed =( : {e}")
 
-    print("Programm finished")
+    print("Programm beendet")
 
 if __name__== "__main__":
     main()
