@@ -5,7 +5,7 @@ import logging
 from datetime import datetime
 
 # Konsistent Variables
-SOURCE_FOLDER = r"C:\Users\Administrator\Desktop\IPLIS"
+SOURCE_FOLDER = r"C:\Users\Administrator\Desktop\Test_Ordner"
 BACKUP_FOLDER = r"C:\Backups_TEST"
 MAX_BACKUPS = 3
 LOG_FILE = os.path.join(BACKUP_FOLDER, "backup_log.txt")
